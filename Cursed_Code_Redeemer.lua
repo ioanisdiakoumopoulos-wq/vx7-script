@@ -1,0 +1,13 @@
+local base = "https://raw.githubusercontent.com/ioanisdiakoumopoulos-wq/vx7-script/main/"
+local source = game:HttpGet(base .. "Cursed_Code_Redeemer_1.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_02.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_03.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_04.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_05.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_06.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_07.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_08.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_09.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_10.lua")
+source = source .. game:HttpGet(base .. "Cursed_Code_Redeemer_safe_11.lua")
+loadstring(source)()
