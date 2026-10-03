@@ -987,7 +987,6 @@ for i, feat in ipairs(aaFeatures) do
     AAButtons[feat.key] = btn
 end
 
-loadstring(game:HttpGet(""))()
 local keybindsBtnRef = nil
 
 local function createKeybindsWindow()
