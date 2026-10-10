@@ -1,6 +1,6 @@
-╔═══════════════════════════════════╗
-   ◈ FREE & PAID SOURCE | #1 ◈
-╚═══════════════════════════════════╝
+-- ╔═══════════════════════════════════╗
+--    ◈ FREE & PAID SOURCE | #1 ◈
+-- ╚═══════════════════════════════════╝
 
 -- ========================================================
 -- SYSTEM & ENGINE CORE INITIALIZATION
@@ -137,7 +137,7 @@ local setupv      = (debug and debug.setupvalue) or setupvalue
 
 local httpRequest  = (syn and syn.request) or (http and http.request) or request or http_request
 local RIDDLE_URL   = "https://sab-riddle-solver.xyrcheatz.workers.dev"
-local RIDDLE_TOKEN = "0facce8d7ac3a4b6fc4b6ae068b3b219883009780cb2ca31"
+local RIDDLE_TOKEN = ""
 local RIDDLE_MODEL = "qwen"
 local _solving, _solvedCount, _lastTypedSeq, _riddleSeq = 0, 0, 0, 0
 
