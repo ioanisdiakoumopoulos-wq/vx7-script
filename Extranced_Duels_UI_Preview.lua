@@ -20,7 +20,7 @@ local DEFAULT_TOGGLES = {
     autoSwing = false, infiniteJump = false, autoLeft = false, autoRight = false,
     esp = false, fps = false, mobileButtons = true, sky = false, showHint = true,
 }
-local DEFAULT_NUMBERS = {normalSpeed = 16, carrySpeed = 20, scale = 1}
+local DEFAULT_NUMBERS = {normalSpeed = 16, carrySpeed = 20, scale = 100}
 local DEFAULT_KEYS = {autoSteal = "G", autoSwing = "F", guiHide = "RightShift", speed = "R"}
 local function copyTable(source)
     local out = {}
@@ -103,7 +103,7 @@ mainStroke.Thickness = 1.5
 mainStroke.Transparency = 0.15
 mainStroke.Parent = main
 local uiScale = Instance.new("UIScale")
-uiScale.Scale = math.clamp(tonumber(state.numbers.scale) or 1, 0.8, 1.2)
+uiScale.Scale = math.clamp(tonumber(state.numbers.scale) or 100, 80, 120) / 100
 uiScale.Parent = main
 
 local topbar = Instance.new("Frame")
@@ -184,6 +184,7 @@ pageHolder.BackgroundTransparency = 1
 pageHolder.Parent = main
 local tabs = {"Speed", "Mechanics", "Keybinds", "Utils", "Settings"}
 local pages, tabButtons, lists = {}, {}, {}
+local toggleRefs = {}
 local activeTab = "Speed"
 
 local function rounded(object, radius)
@@ -315,10 +316,12 @@ local function addToggle(tabName, label, detail, key)
     button.Font = Enum.Font.GothamBold
     button.Parent = row
     rounded(button, 8)
+    table.insert(toggleRefs, {key = key, button = button})
     button.Activated:Connect(function()
         state.toggles[key] = not state.toggles[key]
         button.Text = state.toggles[key] and "ON" or "OFF"
         button.BackgroundColor3 = state.toggles[key] and accent or COLORS.off
+        if key == "showHint" then hint.Visible = state.toggles[key] end
         saveLocalSettings()
     end)
     return row
@@ -428,6 +431,9 @@ local function applyAccent()
     hintStroke.Color = accent
     hint.Visible = state.toggles.showHint
     accentButton.BackgroundColor3 = accent
+    for _, ref in ipairs(toggleRefs) do
+        ref.button.BackgroundColor3 = state.toggles[ref.key] and accent or COLORS.off
+    end
     for tabName, button in pairs(tabButtons) do
         if tabName == activeTab then button.BackgroundColor3 = accent end
         local page = pages[tabName]
